@@ -2,10 +2,10 @@
 //Informar cada vez el subtotal a pagar. Finalizada la carga, mostrar el total a pagar junto a la cantidad de productos que retire el cliente.
 #include <stdio.h>
 
-int cant, total, i, precio, prod, sub;
+int cant, total, i, precio, prod, sub, peticion;
 main(){
 
-for(i = 0; i < 3; i++){
+do {
 	printf("Ingrese el precio del producto %d: \n", i+1);
 	scanf("%d", &precio);
 	printf("Ingrese la cantidad: \n");
@@ -14,7 +14,10 @@ for(i = 0; i < 3; i++){
 	sub = cant * precio;
 	total = (cant * precio) + sub;
 	printf("Subtotal: %d \n", sub);
-}
+
+	printf("Desea agregar otro producto: \n Si = 1 \n No = 0 \n");
+	scanf("%d", &peticion);
+	}while(peticion == 1);
 	printf("La cantidad de productos adquiridos es: %d \n", prod);
 	printf("El total a pagar es: %d", total);
-	}		
+	}	
