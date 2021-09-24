@@ -1,0 +1,21 @@
+function crearUsuario(name, surname, age, username, pass){
+    const newUser = {};
+    newUser.name = name;
+    newUser.surname = surname;
+    newUser.age = age;
+    newUser.username = username;
+    newUser.pass = pass;
+    return newUser;
+    }
+
+    do{
+        pname = prompt("Ingrese su nombre:");
+        psurname = prompt("Ingrese su apellido:");
+        page = prompt("Ingrese su edad:");
+        pusername = prompt("Ingrese su usuario:");
+        ppass = prompt("Ingrese su contraseña:");
+
+    const user = crearUsuario("pname", "psurname", "page", "pusername", "ppass");
+      add = confirm("¿Desea agregar otro usuario?")
+    document.write(user);
+    }while(add === true);
