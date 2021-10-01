@@ -1,12 +1,12 @@
 /*
-Una agencia de viajes desea procesar los datos de sus ventas en un día. Para ello se cargan las operaciones realizadas.
-El destino (1-Internacional, 2-Nacional) y la cantidad de pasajeros que viajan. Puede ser que ese día no se hayan realizado operaciones, y se pueden realizar
-un máximo de 10 operaciónes diarias. El programa finaliza al ingresar 0 como destino. Informar:
+Una agencia de viajes desea procesar los datos de sus ventas en un dÃ­a. Para ello se cargan las operaciones realizadas.
+El destino (1-Internacional, 2-Nacional) y la cantidad de pasajeros que viajan. Puede ser que ese dÃ­a no se hayan realizado operaciones, y se pueden realizar
+un mÃ¡ximo de 10 operaciÃ³nes diarias. El programa finaliza al ingresar 0 como destino. Informar:
 -Total de operaciones realizadas.
 -Total de boletos vendidos.
--Cantidad máxima de pasajeros en una sola operación.
+-Cantidad mÃ¡xima de pasajeros en una sola operaciÃ³n.
 -Porcentaje de boletos que tuvieron destino nacional.
--Mínimo de boletos vendidos para destinos internacionales.
+-MÃ­nimo de boletos vendidos para destinos internacionales.
 */
 #include <stdio.h>
 
@@ -21,21 +21,29 @@ main(){
 		cont = cont +1;
 		printf("[INGRESE LA CANTIDAD DE PASAJEROS] \n");
 		scanf("%d", &pasajeros);
-		if(pasajeros > max || cont == 1){max = pasajeros;}
+		if(pasajeros > max || cont == 1){
+			max = pasajeros;
+		}
 		
 		acum = acum+ pasajeros;
 		
+	if(destino == 1){
+		if(pasajeros < min || cont == 1){
+			min = pasajeros;
+		}
+	}
+	if(destino == 2){
+		nacional = nacional +1;
+	}
 	printf("[INDIQUE EL DESTINO] (1. INTERNACIONAL / 2. NACIONAL) \n");
 	scanf("%d", &destino);
 	if(destino != 1 && destino != 2 && destino != 0){
 		printf("El destino ingresado no es valido. Ingreselo nuevamente: \n");
 		scanf("%d", &destino);
 	}
-	if(destino == 1){
-		if(pasajeros < min || cont == 1){min = pasajeros;}
-	}
-	if(destino == 2){nacional = nacional +1;}
-		if(cont == 10){destino = 0;}
+		if(cont == 10){
+			destino = 0;
+		}
 	}while(destino != 0);
 	porc = nacional * 100 / cont;
 	
